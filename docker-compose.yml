@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: trademetrics-app
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+  
+
+  db:
+    image: postgres:14-alpine
+    container_name: trademetrics-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pdsql@2025
+      POSTGRES_DB: stockdata_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

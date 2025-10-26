@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+psycopg2-binary
+pandas
+numpy
+pydantic
+pytest
+unittest-xml-reporting
+    
